@@ -18,11 +18,7 @@ function keyPressed() {
   if (keyIsPressed) {
     fill(random(255),random(255),random(255));
     textSize(random(200));
-    text((keythatwaspressed || special), random(windowWidth),random(windowHeight));
-
-
-
-
+    text((keythatwaspressed), random(windowWidth),random(windowHeight));
   }
   return false;
 }
