@@ -6,19 +6,18 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   noStroke();
 }
-
 function draw() {
 
 
 }
 
 function keyPressed() {
-  let keythatwaspressed = str(key);
-  let special = str(keyCode);
+  let keythatwaspressed = key;
+  // let special = str(keyCode);
   if (keyIsPressed) {
     fill(random(255),random(255),random(255));
     textSize(random(200));
-    text((keythatwaspressed), random(windowWidth),random(windowHeight));
+    text(keythatwaspressed, random(windowWidth),random(windowHeight));
   }
   return false;
 }
