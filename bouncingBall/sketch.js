@@ -33,7 +33,7 @@ function moveThing(){
 
 function displayThing(){
   fill(0);
-  bird.resize(250,150);
+  
   imageMode(CENTER);
   image(bird,x,y);
 }
