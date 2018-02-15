@@ -19,5 +19,9 @@ function keyPressed() {
     textSize(random(200));
     text(keythatwaspressed, random(windowWidth),random(windowHeight));
   }
-  return false;
+}
+function mouseClicked() {
+  if (mouseIsPressed){
+    text("CLICK", random(windowWidth),random(windowHeight));
+  }
 }
