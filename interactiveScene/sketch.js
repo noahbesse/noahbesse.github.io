@@ -37,7 +37,8 @@ function mouseClicked() {
   }
 }
 
-function  touchStarted(){
+function  tocuhStarted(){
   textSize(random(50,100));
   fill(random(255),random(255),random(255));
+  text("TAP", random(windowWidth), random(windowHeight));
 }
