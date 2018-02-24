@@ -41,16 +41,10 @@ function mouseClicked() {
 
   }
   return false;
+
 }
 
-
-function  tocuhStarted(){
-  textSize(random(50,100));
-  fill(random(255),random(255),random(255));
-  text("TAP", random(windowWidth), random(windowHeight));
-}
-
-
+//makes the words SHAKEY SHAKEY appear when the
 function deviceShaken(){
   textSize(random(50,100));
   fill(random(255),random(255),random(255));
