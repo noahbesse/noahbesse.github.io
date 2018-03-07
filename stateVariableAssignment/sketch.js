@@ -1,7 +1,7 @@
 let state;
 
 function setup(){
-  createCanvas(windowWidth,windowHeight);
+  createCanvas(800,800);
   state = 1;
 }
 
@@ -33,11 +33,26 @@ function startScreen(){
 }
 
 function levelOne(){
+  if (state === 1.5){
+    rectMode(CENTER);
+    background(66, 244, 235);
+    fill(255);
+    rect(width /2,height/2,600,600);
+    rect(width - 670,height - 130,50,50);
+    fill(0);
+    textSize(20);
+    textAlign(CENTER);
+    text("Click the Square to begin", width/2, height/2);
+    if (mouseIsPressed && (mouseX <= width - 645 && mouseX >= width - 695) && (mouseY <= height - 155 && mouseY >= height - 115)){
+      state = 2;
+    }
+  }
   if (state === 2){
     rectMode(CENTER);
     background(66, 244, 235);
+    fill(255);
     rect(width /2,height/2,600,600);
-    car();
+
   }
 }
 
@@ -45,9 +60,10 @@ function car(){
   let x = mouseX;
   let y = mouseY;
   let sizeOfCar = 50;
-  let topOfCar =  sizeOfCar -25;
-  let bottomOfCar = sizeOfCar + 25;
-  let rightOfCar = sizeOfCar
+  let topOfCar =  mouseY - 25;
+  let bottomOfCar = mouseY + 25;
+  let rightOfCar = mouseX + 25;
+  let leftOfCar = mouseX -25;
   rect(x,y,sizeOfCar,sizeOfCar);
 
 }
