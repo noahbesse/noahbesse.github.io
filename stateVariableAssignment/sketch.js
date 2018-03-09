@@ -1,5 +1,5 @@
 let state;
-let sizeOfCar, topOfCar bottomOfCar, rightOfCar, leftOfCar;
+let sizeOfCar, topOfCar, bottomOfCar, rightOfCar, leftOfCar;
 
 function setup(){
   createCanvas(800,800);
@@ -54,9 +54,9 @@ function levelOne(){
     fill(255);
     rect(width /2,height/2,600,600);
     car();
-    if (leftOfCar <= 200){
-      state = 5;
-    }
+    /*if (leftOfCar <= 200){
+      state = 5;*/
+    //}
   }
 }
 
