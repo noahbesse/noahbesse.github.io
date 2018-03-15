@@ -43,6 +43,10 @@ function levelOne(){
     fill("red");
     noStroke();
     rect(width - 640,height - 160 ,50,50);
+    fill(66, 244, 235);
+    rect(100,550,950,50);
+    rect(600,250,750,50);
+    rect(400,400,85,85);
     fill(0);
     textSize(20);
     textAlign(CENTER);
@@ -58,6 +62,17 @@ function levelOne(){
     noStroke();
     rect(width /2,height/2,600,600);
     car();
+    fill(66, 244, 235);
+    rect(100,550,950,50);
+    rect(600,250,750,50);
+    rect(400,400,85,85);
+    rect();
+    if (leftOfCar >= 200 && rightOfCar <= 600 && topOfCar >= 200 && bottomOfCar <= 600){
+      if(){
+
+
+      }
+    }
   }
 }
 
