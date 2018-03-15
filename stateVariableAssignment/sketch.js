@@ -9,6 +9,7 @@ function setup(){
 function draw(){
   startScreen();
   levelOne();
+  gameOver();
 }
 
 function startScreen(){
@@ -39,12 +40,14 @@ function levelOne(){
     background(66, 244, 235);
     fill(255);
     rect(width /2,height/2,600,600);
-    rect(width - 670,height - 130,50,50);
+    fill("red");
+    noStroke();
+    rect(width - 640,height - 160 ,50,50);
     fill(0);
     textSize(20);
     textAlign(CENTER);
     text("Click the Square to begin", width/2, height/2);
-    if (mouseIsPressed && (mouseX <= width - 645 && mouseX >= width - 695) && mouseY >= height - 155 && mouseY <= height - 115){
+    if (mouseIsPressed && (mouseX <= width - 615 && mouseX >= width - 665) && mouseY >= height - 185 && mouseY <= height - 135){
       state = 2;
     }
   }
@@ -52,11 +55,9 @@ function levelOne(){
     rectMode(CENTER);
     background(66, 244, 235);
     fill(255);
+    noStroke();
     rect(width /2,height/2,600,600);
     car();
-    /*if (leftOfCar <= 200){
-      state = 5;*/
-    //}
   }
 }
 
@@ -68,14 +69,31 @@ function car(){
   bottomOfCar = mouseY + 25;
   rightOfCar = mouseX + 25;
   leftOfCar = mouseX -25;
+  noStroke();
+  fill("red");
   rect(x,y,sizeOfCar,sizeOfCar);
 
 }
 
 function gameOver(){
-  if (state === 5){
+  if (state === 4){
     background(66, 244, 235);
     textAlign(CENTER);
-    text("GAME OVER",400,400);
+    text("GAME OVER",400,200);
+    rectMode(CENTER);
+    rect(200,400,150,100);
+    rect(600,400,150,100);
+    textAlign(CENTER);
+    textSize(30);
+    text("Restart",200,400 + 10);
+    text("Exit",600,400 + 10);
+    if (mouseIsPressed && mouseY >=350 && mouseY <= 450){
+      if (mouseX >= width - 125 && mouseX <= width - 275){
+        state = 1.5;
+      }
+      if(mouseX >= width - 525 && mouseX <= width - 675){
+        state = 1;
+      }
+    }
   }
 }
