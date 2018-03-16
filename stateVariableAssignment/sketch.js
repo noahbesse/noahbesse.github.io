@@ -67,14 +67,12 @@ function levelOne(){
     rect(600,250,750,50);
     rect(400,400,85,85);
     rect();
-    if (leftOfCar >= 200 && rightOfCar <= 600 && topOfCar >= 200 && bottomOfCar <= 600){
-      if(){
-
-
-      }
+    if(leftOfCar <= 160){
+      state = 4;
     }
   }
 }
+
 
 function car(){
   let x = mouseX;
@@ -83,7 +81,7 @@ function car(){
   let topOfCar =  mouseY - 25;
   bottomOfCar = mouseY + 25;
   rightOfCar = mouseX + 25;
-  leftOfCar = mouseX -25;
+  leftOfCar = mouseX - 25;
   noStroke();
   fill("red");
   rect(x,y,sizeOfCar,sizeOfCar);
