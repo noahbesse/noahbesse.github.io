@@ -67,8 +67,6 @@ function levelOne(){
     rect(600,250,750,50);
     rect(400,400,85,85);
     rect();
-    if(leftOfCar <= 160){
-      state = 4;
     }
   }
 }
