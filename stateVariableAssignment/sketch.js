@@ -47,6 +47,8 @@ function levelOne(){
     rect(100,550,950,50);
     rect(600,250,750,50);
     rect(400,400,85,85);
+    fill(102, 255, 51);
+    rect(650,162.5,100,125);
     fill(0);
     textSize(20);
     textAlign(CENTER);
@@ -66,8 +68,12 @@ function levelOne(){
     rect(100,550,950,50);
     rect(600,250,750,50);
     rect(400,400,85,85);
-    rect();
+    fill(102, 255, 51);
+    rect(650,162.5,100,125);
+    if (mouseY + 27 >= 700 || mouseY - 27 <= 100 || mouseX - 27 >= 200){
+      state = 4;
     }
+
   }
 }
 
@@ -92,8 +98,10 @@ function gameOver(){
     textAlign(CENTER);
     text("GAME OVER",400,200);
     rectMode(CENTER);
+    fill(255);
     rect(200,400,150,100);
     rect(600,400,150,100);
+    fill(0);
     textAlign(CENTER);
     textSize(30);
     text("Restart",200,400 + 10);
