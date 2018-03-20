@@ -14,16 +14,25 @@ function draw(){
 
 function startScreen(){
   if (state === 1){
+    fill(255);
     background(66, 244, 235);
     rectMode(CENTER);
     rect(width/2,height/2,300,150);
+    fill(0);
     textSize(40);
     textAlign(CENTER);
     text("Play",width/2,height/2 + 10);
+    textSize(60);
+    text("Don't touch the walls", 400,100);
     if (mouseX >= width/2 - 150 && mouseX <= width/2 + 150 && mouseY >= height/2 - 75 && mouseY <= height/2 +75){
       background(66, 244, 235);
+      fill(0);
+      textSize(60);
+      text("Don't touch the walls", 400,100);
+      fill(255);
       rectMode(CENTER);
       rect(width/2,height/2,350,175);
+      fill(0);
       textSize(50);
       textAlign(CENTER);
       text("Play",width/2,height/2 + 15);
@@ -44,16 +53,23 @@ function levelOne(){
     noStroke();
     rect(width - 640,height - 160 ,50,50);
     fill(66, 244, 235);
+    //far left wall
     rect(100,550,950,50);
+    //far right wall
     rect(600,250,750,50);
+    //center square
     rect(400,400,85,85);
+    //Finish line
     fill(102, 255, 51);
     rect(650,162.5,100,125);
+
     fill(0);
     textSize(20);
     textAlign(CENTER);
     text("Click the Square to begin", width/2, height/2);
-    if (mouseIsPressed && (mouseX <= width - 615 && mouseX >= width - 665) && mouseY >= height - 185 && mouseY <= height - 135){
+    if  (mouseIsPressed &&
+        (mouseX <= width - 615 && mouseX >= width - 665) &&
+        (mouseY >= height - 185 && mouseY <= height - 135)){
       state = 2;
     }
   }
@@ -65,12 +81,26 @@ function levelOne(){
     rect(width /2,height/2,600,600);
     car();
     fill(66, 244, 235);
+    //far left wall
     rect(100,550,950,50);
+    //far right wall
     rect(600,250,750,50);
+    //center square
     rect(400,400,85,85);
+    //finish line
     fill(102, 255, 51);
     rect(650,162.5,100,125);
-    if (mouseY + 27 >= 700 || mouseY - 27 <= 100 || mouseX - 27 >= 200){
+
+    //if any of the walls are touched it results in a game over
+    if (//outside walls
+        mouseY + 27 >= 705 || mouseY - 27 <= 95 ||
+        mouseX - 27 <= 95 || mouseX + 27 >= 705 ||
+        //middle square
+        (mouseX + 25 >= 357.5 && mouseX - 25 <= 442.5 &&
+        mouseY + 25 >= 357.5 && mouseY - 25 <= 442.5)||
+        //left sticking out wall
+        (mouseX - 25 <= 574 && mouseY + 25 >= 525 && mouseY - 25 <= 575)||
+        ()){
       state = 4;
     }
 
@@ -107,10 +137,12 @@ function gameOver(){
     text("Restart",200,400 + 10);
     text("Exit",600,400 + 10);
     if (mouseIsPressed && mouseY >=350 && mouseY <= 450){
-      if (mouseX >= width - 125 && mouseX <= width - 275){
+      //restart
+      if (mouseX >= width - 125 || mouseX <= width - 275){
         state = 1.5;
       }
-      if(mouseX >= width - 525 && mouseX <= width - 675){
+      //exit to menu
+      if(mouseX >= width - 525 || mouseX <= width - 675){
         state = 1;
       }
     }
