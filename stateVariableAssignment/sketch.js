@@ -1,3 +1,6 @@
+//Noah Besse
+//State Variable Assignment
+//STATES: 1 = play button screen, 2 = "click square to play" screen, 3 = actual game, 4 = game over screen, 5 = win screen
 let state;
 let sizeOfCar;
 
@@ -12,7 +15,7 @@ function draw(){
   levelOne();
   gameOver();
 }
-
+//makes the start screens
 function startScreen(){
   if (state === 1){
     fill(255);
@@ -43,7 +46,7 @@ function startScreen(){
     }
   }
 }
-
+//draws the game
 function levelOne(){
   if (state === 2){
     rectMode(CENTER);
@@ -93,7 +96,7 @@ function levelOne(){
     rect(650,162.5,100,125);
     //if touches finish line = win
     if(mouseY - 25 <= 275 && mouseX + 25 >= 600 ){
-      state = 6;
+      state = 5;
 
     }
     //if any of the walls are touched it results in a game over
@@ -123,7 +126,7 @@ function car(){
   rect(x,y,sizeOfCar,sizeOfCar);
 
 }
-
+//this sets the game over screen and the win screen
 function gameOver(){
   if(state === 6){
     background(66, 244, 235);
@@ -149,7 +152,7 @@ function gameOver(){
       state = 1;
     }
   }
-  if (state === 4){
+  if (state === 5){
     background(66, 244, 235);
     textAlign(CENTER);
     text("GAME OVER",400,200);
