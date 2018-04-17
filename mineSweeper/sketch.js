@@ -7,18 +7,24 @@ let grid;
 let cellSize;
 let currentCol;
 let currentRow;
+let amountOfNeighbors;
+
 
 function setup() {
   createCanvas(600, 600);
   cellSize = width / cols;
   grid = createRandom2dArray(cols, rows);
-  currentCol = Math.ceil(mouseY / cellSize);
-  currentRow = Math.floor(mouseX / cellSize);
+  //gives the location that you clicked exact coordinates opposed to one
+  //with a lot of decimal places
+  currentRow = Math.floor(mouseY / cellSize);
+  currentCol = Math.floor(mouseX / cellSize);
 }
-
 function draw() {
   background(255);
+  stroke(5);
+  rect(0,0,600,600);
   displayEmptyGrid();
+
 }
 function displayEmptyGrid(){
   for (let x=0; x<cols; x++) {
@@ -67,37 +73,25 @@ function createEmpty2dArray(cols, rows) {
   }
   return randomGrid;
 }
-<<<<<<< HEAD
-
 function displayNeighbors(){
-  let amountOfNeighbors = 0;
+  amountOfNeighbors = 0;
   for (let i = -1;i < 1; i++){
     for(let j = -1;j < 1; j++){
-      if (grid[currentRow + i][currentCol + j] === 0){
-        amountOfNeighbors++;
-=======
-function detectSquares(){
-  let clickX = mouseX;
-  let clickY = mouseY;
-  if (mouseIsPressed){
-
-  }
-            }
-          }
-        }
->>>>>>> 5e7a050dc1f997392460a85954bb35d281914b36
+      let posX = currentCol + i;
+      let posY = currentRow + j;
+      if (grid[posX][posY] === 0){
+        amountOfNeighbors = amountOfNeighbors + 1;
       }
     }
   }
-  text(amountOfNeighbors, currentRow,currentCol);
 }
 function mousePressed(){
 
-  if (grid[currentRow][currentCol] === 0){
+  if (grid[currentCol][currentRow] === 0){
     displayGrid();
     gameOver();
   }
-  if (grid[currentRow][currentCol] === 1){
+  if (grid[currentCol][currentRow] === 1){
     displayNeighbors();
   }
 }
