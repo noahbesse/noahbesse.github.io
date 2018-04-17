@@ -1,29 +1,36 @@
 //Minesweeper
 //Noah Besse
 //April 14,2018
-let currentAmountOfMines
-let maxAmountOfMines = 10;
 let rows = 10;
 let cols = 10;
 let grid;
 let cellSize;
+let currentCol;
+let currentRow;
 
 function setup() {
-  currentAmountOfMines = 0;
   createCanvas(600, 600);
   cellSize = width / cols;
   grid = createRandom2dArray(cols, rows);
+  currentCol = Math.ceil(mouseY / cellSize);
+  currentRow = Math.floor(mouseX / cellSize);
 }
 
 function draw() {
   background(255);
-  displayGrid();
+  displayEmptyGrid();
 }
-
+function displayEmptyGrid(){
+  for (let x=0; x<cols; x++) {
+    for (let y=0; y<rows; y++) {
+      rect(x*cellSize, y*cellSize, cellSize,cellSize);
+    }
+  }
+}
 function displayGrid() {
   for (let x=0; x<cols; x++) {
     for (let y=0; y<rows; y++) {
-      if (grid[x][y] === 0 && currentAmountOfMines < maxAmountOfMines) {
+      if (grid[x][y] === 0) {
 
         fill(0);
       }
@@ -60,12 +67,28 @@ function createEmpty2dArray(cols, rows) {
   }
   return randomGrid;
 }
-function detectMines(){
-  for (let i = 0; i < rows; i++){
-    for (let j = 0; j < cols; j++){
-      if (grid[i][j] === 1){
-        if grid[i + 1][j] ||
+
+function displayNeighbors(){
+  let amountOfNeighbors = 0;
+  for (let i = -1;i < 1; i++){
+    for(let j = -1;j < 1; j++){
+      if (grid[currentRow + i][currentCol + j] === 0){
+        amountOfNeighbors++;
       }
     }
   }
+  text(amountOfNeighbors, currentRow,currentCol);
+}
+function mousePressed(){
+
+  if (grid[currentRow][currentCol] === 0){
+    displayGrid();
+    gameOver();
+  }
+  if (grid[currentRow][currentCol] === 1){
+    displayNeighbors();
+  }
+}
+function gameOver(){
+
 }
