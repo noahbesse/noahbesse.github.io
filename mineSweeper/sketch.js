@@ -60,11 +60,15 @@ function createEmpty2dArray(cols, rows) {
   }
   return randomGrid;
 }
-function detectMines(){
-  for (let i = 0; i < rows; i++){
-    for (let j = 0; j < cols; j++){
-      if (grid[i][j] === 1){
-        if grid[i + 1][j] ||
+function detectSquares(){
+  let clickX = mouseX;
+  let clickY = mouseY;
+  if (mouseIsPressed){
+
+  }
+            }
+          }
+        }
       }
     }
   }
