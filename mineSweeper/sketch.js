@@ -67,6 +67,7 @@ function createEmpty2dArray(cols, rows) {
   }
   return randomGrid;
 }
+<<<<<<< HEAD
 
 function displayNeighbors(){
   let amountOfNeighbors = 0;
@@ -74,6 +75,17 @@ function displayNeighbors(){
     for(let j = -1;j < 1; j++){
       if (grid[currentRow + i][currentCol + j] === 0){
         amountOfNeighbors++;
+=======
+function detectSquares(){
+  let clickX = mouseX;
+  let clickY = mouseY;
+  if (mouseIsPressed){
+
+  }
+            }
+          }
+        }
+>>>>>>> 5e7a050dc1f997392460a85954bb35d281914b36
       }
     }
   }
