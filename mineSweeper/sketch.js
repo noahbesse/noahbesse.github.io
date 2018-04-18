@@ -73,17 +73,24 @@ function createEmpty2dArray(cols, rows) {
   }
   return randomGrid;
 }
-function displayNeighbors(){
-  amountOfNeighbors = 0;
-  for (let i = -1;i < 1; i++){
-    for(let j = -1;j < 1; j++){
-      let posX = currentCol + i;
-      let posY = currentRow + j;
-      if (grid[posX][posY] === 0){
-        amountOfNeighbors = amountOfNeighbors + 1;
+function discorverNeighbors(){
+  let next = createEmpty2dArray();    
+  for (let x=0; x<cols; x++) {
+    for (let y=0; y<rows; y++) {
+
+      let neighbors = 0;
+      for (let i=-1; i<=1; i++) {
+        for (let j=-1; j<=1; j++) {
+          // don't break on the edges
+          if (x+i >= 0  && x+i < cols && y+j >= 0 && y+j < rows) {
+            neighbors += grid[x+i][y+j];
+          }
+        }
       }
+      text(neighbors,x,y);
     }
   }
+
 }
 function mousePressed(){
 
