@@ -74,7 +74,7 @@ function createEmpty2dArray(cols, rows) {
   return randomGrid;
 }
 function discorverNeighbors(){
-  let next = createEmpty2dArray();    
+  let next = createEmpty2dArray();
   for (let x=0; x<cols; x++) {
     for (let y=0; y<rows; y++) {
 
@@ -87,10 +87,12 @@ function discorverNeighbors(){
           }
         }
       }
-      text(neighbors,x,y);
+      if (neighbors === 0){
+        return false;
+      }
+
     }
   }
-
 }
 function mousePressed(){
 
@@ -103,5 +105,5 @@ function mousePressed(){
   }
 }
 function gameOver(){
-
+  text("GAME OVER",width/2,height/2);
 }
