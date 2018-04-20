@@ -29,7 +29,7 @@ function startScreen(){
     text("Press Space", width/2 - 130,height/2+20);
     if (keyIsPressed){
       if (keyCode === 32){
-      state = 2;
+        state = 2;
       }
     }
   }
@@ -45,11 +45,11 @@ function gameScreen(){
     displayEmptyGrid();
     if (mouseIsPressed){
       if (grid[currentCol][currentRow] === 0){
-           state = 3;
-         }
+        state = 3;
+      }
       if (grid[currentCol][currentRow] ===1){
-           displayNeighbors();
-         }
+        displayNeighbors();
+      }
     }
   }
 }
@@ -106,25 +106,27 @@ function displayNeighbors(){
       let neighbors = 0;
       for (let i=-1; i<=1; i++) {
         for (let j=-1; j<=1; j++) {
-          if (x+i >= 0  && x+i < cols && y+j >= 0 && y+j < rows) {
-            neighbors += grid[x+i][y+j];
+          if (currentCol+i >= 0  && currentCol+i < cols && currentRow+j >= 0 && currentRow+j < rows) {
+            neighbors += grid[currentRow+i][currentCol+j];
           }
         }
       }
       neighbors -= grid[x][y];
 
-      if (grid[x][y] === 1){
-        
-      }
-      else{
-
-      }
-
+      // if (grid[x][y] === 1){
+      //
+      // }
+      // else{
+      //   displayGrid();
+      //   state = 3;
     }
+
   }
 }
+//}
 function gameOver(){
   if (state === 3){
-    text("reeeee",0,0);
+    fill("red");
+    text("Game over",windowWidth/2 - 200,windowHeight/2-100);
   }
 }
